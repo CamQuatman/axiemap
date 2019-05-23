@@ -1,1 +1,43 @@
-<iframe src="https://github.com/CamQuatman/axiemap/blob/master/default.html" style="width:1200px; height:1200px;"/><iframe>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Axie Map</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+.axieMap img{width:1200px;height:1200px;position:absolute;}
+.plot{width:4px; height:4px;position:absolute;display:none; z-index:100;background:#333}
+.plot-wraper{position:relative; width:4px; height:4px; left:600px; top:600px;}
+.xy{padding:10px;}
+</style>
+
+</head>
+<body >
+<div class="xy">
+<input class="xCords" placeholder="X cords" id="XCords" />
+<input class="yCords" placeholder="Y cords" id="YCords"/>
+<input type="button" value="go" id="Go" />
+</div>
+<div class="axieMap">
+<img src="https://axie-dex.kikoweb.ch/img/lunacia/lunacia_map.png"></img>
+<div class="plot-wraper">
+<div class="plot"></div>
+</div>
+</div>
+
+<script>
+$( "#Go" ).click(function() {
+ x =$("#XCords").val();
+ y = $("#YCords").val();
+ 
+ 
+ plotx = x*4 -1;
+ ploty = y*4 - 1;
+ $(".plot" ).css({ top: ploty });
+  $(".plot" ).css({ left: plotx });;
+ $(".plot" ).css({"display" : "block" } );
+});
+</script>
+
+</body>
+</html>
